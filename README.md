@@ -26,8 +26,8 @@ Import mô hình SVM từ thư viện sklearn và áp dụng nó lên dữ liệ
 -DeepFace có nhiều lựa chọn mô hình và metric để đánh giá sự tương đồng, như cosine, euclidean, euclidean_l2.
 **III.Đặc Trưng**
 **Tìm tất cả các khuôn mặt xuất hiện trong một bức ảnh:**
--https://github.com/Software-Engineering-Pka/Face-recog-rating/blob/main/face_rating/stored-faces/z5778559167316_b3a0b36eea0a945a12304b5d6ce84be7.jpg
--https://github.com/Software-Engineering-Pka/Face-recog-rating/blob/main/face_rating/stored-faces/z5778558727844_c8ce578dd20fb48b8f25a82e43e8ce32.jpg
+- https://github.com/Software-Engineering-Pka/Face-recog-rating/blob/main/face_rating/stored-faces/z5778559167316_b3a0b36eea0a945a12304b5d6ce84be7.jpg
+- https://github.com/Software-Engineering-Pka/Face-recog-rating/blob/main/face_rating/stored-faces/z5778558727844_c8ce578dd20fb48b8f25a82e43e8ce32.jpg
 **Thuật toán:**
 **Truy xuất các khuôn mặt muốn nhận diện trong:** -https://github.com/Software-Engineering-Pka/Face-recog-rating/tree/main/face_rating/media/images
 -sfr = face_recog_model()
