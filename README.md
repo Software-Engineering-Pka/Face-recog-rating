@@ -25,16 +25,16 @@ Import mô hình SVM từ thư viện sklearn và áp dụng nó lên dữ liệ
 -Import thư viện DeepFace và sử dụng các công cụ như detector_backend và model để phát hiện và nhận dạng khuôn mặt.
 -DeepFace có nhiều lựa chọn mô hình và metric để đánh giá sự tương đồng, như cosine, euclidean, euclidean_l2.
 **III.Đặc Trưng**
-**Tìm tất cả các khuôn mặt xuất hiện trong một bức ảnh:**
+- **Tìm tất cả các khuôn mặt xuất hiện trong một bức ảnh:**
 - https://github.com/Software-Engineering-Pka/Face-recog-rating/blob/main/face_rating/stored-faces/z5778559167316_b3a0b36eea0a945a12304b5d6ce84be7.jpg
 - https://github.com/Software-Engineering-Pka/Face-recog-rating/blob/main/face_rating/stored-faces/z5778558727844_c8ce578dd20fb48b8f25a82e43e8ce32.jpg
-**Thuật toán:**
-**Truy xuất các khuôn mặt muốn nhận diện trong:** -https://github.com/Software-Engineering-Pka/Face-recog-rating/tree/main/face_rating/media/images
+- **Thuật toán:**
+- **Truy xuất các khuôn mặt muốn nhận diện trong:** -https://github.com/Software-Engineering-Pka/Face-recog-rating/tree/main/face_rating/media/images
 - sfr = face_recog_model()
 - sfr.encoding_faces(os.path.join(settings.MEDIA_ROOT, 'images'))
-**Xác định tọa độ và so sánh khuôn mặt:**
+- **Xác định tọa độ và so sánh khuôn mặt:**
 - face_locations, face_names = sfr.comparing_faces(frame)
-**Thêm hình chữ nhật bao quanh khuôn mặt được phát hiện:**
+- **Thêm hình chữ nhật bao quanh khuôn mặt được phát hiện:**
 - for face_loc, name in zip(face_locations, face_names):
 -   y1, x2, y2, x1 = face_loc[0], face_loc[1], face_loc[2], face_loc[3]
 -   cv2.putText(frame, name, (x1, y1 - 10), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 200), 2)
