@@ -1,11 +1,11 @@
 # Face-recognition
 **I.Giới Thiệu về dự án**
-Face-recognition là công nghệ nhận diện khuôn mặt dựa trên các đặc điểm sinh trắc học. Công nghệ này sử dụng các thuật toán để phân tích các đặc trưng trên khuôn mặt, như khoảng cách giữa mắt, hình dáng mũi, và cấu trúc xương hàm, từ đó xác định danh tính của người dùng. Chấm điểm khuôn mặt là quá trình đánh giá và cho điểm các đặc điểm khuôn mặt dựa trên các tiêu chí thẩm mỹ hoặc sinh trắc học. Điểm số này có thể được sử dụng trong nhiều ứng dụng, từ xác thực danh tính đến phân tích tâm lý học hành vi hoặc đánh giá các yếu tố thẩm mỹ. Công nghệ này đang ngày càng được sử dụng rộng rãi trong các lĩnh vực bảo mật, thương mại và y tế, giúp cải thiện độ chính xác và hiệu quả trong việc nhận diện và phân tích khuôn mặt người.
-* Mục tiêu và nội dung
+- Face-recognition là công nghệ nhận diện khuôn mặt dựa trên các đặc điểm sinh trắc học. Công nghệ này sử dụng các thuật toán để phân tích các đặc trưng trên khuôn mặt, như khoảng cách giữa mắt, hình dáng mũi, và cấu trúc xương hàm, từ đó xác định danh tính của người dùng. Chấm điểm khuôn mặt là quá trình đánh giá và cho điểm các đặc điểm khuôn mặt dựa trên các tiêu chí thẩm mỹ hoặc sinh trắc học. Điểm số này có thể được sử dụng trong nhiều ứng dụng, từ xác thực danh tính đến phân tích tâm lý học hành vi hoặc đánh giá các yếu tố thẩm mỹ. Công nghệ này đang ngày càng được sử dụng rộng rãi trong các lĩnh vực bảo mật, thương mại và y tế, giúp cải thiện độ chính xác và hiệu quả trong việc nhận diện và phân tích khuôn mặt người.
+**Mục tiêu và nội dung**
 - Chạy được chương trình nhận dạng khuôn mặt (face recognition)
 - Tìm hiểu được về Dlib và face detection
 - Nắm được các giải pháp đã đề ra.
-* Phương thức thực hiện
+**Phương thức thực hiện**
 - Dlib + Euclipse (hay còn được gọi là KNN)
 - Dlib + SVM
 **II.Cài Đặt**
