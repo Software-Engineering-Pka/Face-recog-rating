@@ -29,7 +29,8 @@ Import mô hình SVM từ thư viện sklearn và áp dụng nó lên dữ liệ
 - https://github.com/Software-Engineering-Pka/Face-recog-rating/blob/main/face_rating/stored-faces/z5778559167316_b3a0b36eea0a945a12304b5d6ce84be7.jpg
 - https://github.com/Software-Engineering-Pka/Face-recog-rating/blob/main/face_rating/stored-faces/z5778558727844_c8ce578dd20fb48b8f25a82e43e8ce32.jpg
 - **Thuật toán:**
-- **Truy xuất các khuôn mặt muốn nhận diện trong:** -https://github.com/Software-Engineering-Pka/Face-recog-rating/tree/main/face_rating/media/images
+- **Truy xuất các khuôn mặt muốn nhận diện trong:**
+- https://github.com/Software-Engineering-Pka/Face-recog-rating/tree/main/face_rating/media/images
 - sfr = face_recog_model()
 - sfr.encoding_faces(os.path.join(settings.MEDIA_ROOT, 'images'))
 - **Xác định tọa độ và so sánh khuôn mặt:**
