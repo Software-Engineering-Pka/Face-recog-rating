@@ -17,9 +17,9 @@ Lưu trữ dữ liệu: Lưu các ảnh vào một thư mục được sắp x�
  2.Nhận diện Khuôn mặt (Face Detection)
 Chuẩn bị model: Dlib yêu cầu một số model như facial landmark detector và ResNet model. Bạn có thể tải xuống và giải nén chúng, hoặc sử dụng đoạn mã sau để tải về và giải nén các tệp bắt buộc nếu chúng chưa tồn tại trong thư mục hiện tại.
 Load model đã huấn luyện: Sau khi tải xuống, load các mô hình pre-train để sẵn sàng sử dụng.
-**Phương pháp 1**: Sử dụng khoảng cách Euclidean
+- **Phương pháp 1**: Sử dụng khoảng cách Euclidean
 Đọc các file npz đã được tạo từ dữ liệu tập huấn luyện (train data), chuyển ảnh mới thành vector và tính toán khoảng cách Euclidean để xác định danh tính.
-**Phương pháp 2**: Sử dụng SVM
+- **Phương pháp 2**: Sử dụng SVM
 Import mô hình SVM từ thư viện sklearn và áp dụng nó lên dữ liệu trong file npz đã tạo, sau đó so sánh để đưa ra kết quả nhận dạng.
 3.Sử dụng DeepFace
 -Import thư viện DeepFace và sử dụng các công cụ như detector_backend và model để phát hiện và nhận dạng khuôn mặt.
