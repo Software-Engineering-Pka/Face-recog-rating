@@ -30,12 +30,12 @@ Import mô hình SVM từ thư viện sklearn và áp dụng nó lên dữ liệ
 - https://github.com/Software-Engineering-Pka/Face-recog-rating/blob/main/face_rating/stored-faces/z5778558727844_c8ce578dd20fb48b8f25a82e43e8ce32.jpg
 **Thuật toán:**
 **Truy xuất các khuôn mặt muốn nhận diện trong:** -https://github.com/Software-Engineering-Pka/Face-recog-rating/tree/main/face_rating/media/images
--sfr = face_recog_model()
--sfr.encoding_faces(os.path.join(settings.MEDIA_ROOT, 'images'))
+- sfr = face_recog_model()
+- sfr.encoding_faces(os.path.join(settings.MEDIA_ROOT, 'images'))
 **Xác định tọa độ và so sánh khuôn mặt:**
--face_locations, face_names = sfr.comparing_faces(frame)
+- face_locations, face_names = sfr.comparing_faces(frame)
 **Thêm hình chữ nhật bao quanh khuôn mặt được phát hiện:**
--for face_loc, name in zip(face_locations, face_names):
--  y1, x2, y2, x1 = face_loc[0], face_loc[1], face_loc[2], face_loc[3]
--  cv2.putText(frame, name, (x1, y1 - 10), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 200), 2)
--  cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 200), 4)
+- for face_loc, name in zip(face_locations, face_names):
+-   y1, x2, y2, x1 = face_loc[0], face_loc[1], face_loc[2], face_loc[3]
+-   cv2.putText(frame, name, (x1, y1 - 10), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 200), 2)
+-   cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 200), 4)
