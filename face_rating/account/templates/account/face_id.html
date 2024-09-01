@@ -1,0 +1,23 @@
+{% extends 'face_rating_app/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/face_id.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+<video src="" id="video-webcam" height="480" width="640" autoplay style="transform: scaleX(-1);"></video>
+<canvas width="640" height="480"></canvas>
+<div>
+    <form action="{% url 'account:face_login' %}" method="post" >
+        {% csrf_token %}
+        <button type="submit" id="btn">Click here to Sign In</button>
+        <input type="text" name="imageData" id="imageData" hidden>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+{% endblock content %}
+{% block js %}
+    <script src="{% static 'js/face_id.js' %}"></script>
+{% endblock js %}

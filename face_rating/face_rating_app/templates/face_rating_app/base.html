@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intellicon - AI and Machine Learning</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+    {% block css %}
+        
+    {% endblock css %}
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Face recognition</h1>
+            </div>
+            <nav>
+                <ul>
+                   
+                    <li><a href="{% url 'face_recognition_app:face_recognition_app' %}">Face recognition</a></li>
+                    <li><a href="{% url 'face_recognition_app:face_recognition_app' %}">Face rating</a></li>
+                    <li><a href="{% url 'account:face_id' %}">Sign in with face id</a></li>
+                    <li><a href="">{{request.user.username}}</a></li>
+
+              
+                </ul>
+            </nav>
+            <div class="sign-in">
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'account:signout'  %}" class="btn-signin">Signout</a></li>
+                {% else %}
+                <li><a href="{% url 'account:signin'  %}" class="btn-signin">Signin</a></li>
+                <br>
+                <br>
+                <li><a href="{% url 'account:signup'  %}" class="btn-signin">Signup</a></li>
+                {% endif %}
+              
+            </div>
+        </div>
+    </header>
+    
+    {% block content %}
+        
+    {% endblock content %}
+        
+    
+    {% block js %}
+        
+    {% endblock js %}
+</body>
+</html>

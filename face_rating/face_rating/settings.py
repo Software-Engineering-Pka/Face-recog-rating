@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-00hl1l-gs#(c^oou12bq0-11*h894nz43e-84c^8zq88j085-9
 DEBUG = True
 
 ALLOWED_HOSTS = []
+AUTH_USER_MODEL = "account.AccountModel"
 
 
 # Application definition
@@ -38,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'face_recognition_app',
-    'face_rating_app'
+    'face_rating_app',
+    'account'
 ]
 
 MIDDLEWARE = [

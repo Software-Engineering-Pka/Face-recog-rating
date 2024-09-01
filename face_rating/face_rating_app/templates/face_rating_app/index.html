@@ -1,0 +1,36 @@
+{% extends "face_rating_app/base.html" %}
+{% load static %}
+
+{% block css %}
+{% endblock css %}
+
+{% block content %}
+<main>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <h2>FACE RECOGNITION <span class="highlight">&</span> FACIAL SCORING</h2>
+                <h1>Am I Beautiful or Ugly?</h1>
+                <p>Am I pretty? Am I ugly?<br>
+                    Why am I ugly? or not pretty enough?<br>
+                    Online test for face beauty analysis.<br>
+                    Analyze your face in 3 minutes.<br>
+                    Rate my face 1-100. How beautiful am I?<br>
+                    Are you pretty? Ask us with confidentiality.<br>
+                    Upload photo or use webcam.</p>
+
+                <div class="hero-buttons">
+                    <a href="#" class="btn-get-started">Face Test</a>
+                </div>
+            </div>
+            <div class="hero-images">
+                <img src="{% static 'images/banner1.png' %}" alt="AI Robot">
+                <img src="{% static 'images/ai-element.png' %}" alt="Brain" class="ai-element">
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock content %}
+
+{% block js %}
+{% endblock js %}
