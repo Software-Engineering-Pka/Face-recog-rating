@@ -1,16 +1,12 @@
-
 {% extends 'face_rating_app/base.html' %}
-{% block css %}
-    
-{% endblock css %}
 {% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/face_recognition.css' %}">
 <h1>Recog page</h1>
 <img id="video-feed" src="{% url 'face_recognition_app:video_feed' %}" alt="Video Stream" style="margin-left: 30%; transform: scaleX(-1);">
 <form action="{% url 'face_recognition_app:stop_webcam' %}" method="post">
     {% csrf_token %}
     <button type="submit">Stop</button>
 </form>
+<script src="{% static 'js/face_recognition.js' %}"></script>
 {% endblock content %}
-{% block js %}
-    
-{% endblock js %}

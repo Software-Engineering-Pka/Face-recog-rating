@@ -21,7 +21,7 @@
                 <ul>
                    
                     <li><a href="{% url 'face_recognition_app:face_recognition_app' %}">Face recognition</a></li>
-                    <li><a href="{% url 'face_recognition_app:face_recognition_app' %}">Face rating</a></li>
+                    <li><a href="{% url 'face_rating_app:face_rating' %}">Face rating</a></li>
                     <li><a href="{% url 'account:face_id' %}">Sign in with face id</a></li>
                     <li><a href="">{{request.user.username}}</a></li>
 
@@ -45,6 +45,7 @@
     {% block content %}
         
     {% endblock content %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         
     
     {% block js %}

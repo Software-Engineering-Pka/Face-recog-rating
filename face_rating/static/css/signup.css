@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
+}
+body {
+  font-size: 14px;
+}
+.login-container {
+  background-image: url(../images/bg.avif);
+  /* background-image: url(./login-night.jpg); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+.logo {
+  width: 100%;
+  margin-bottom: 56px;
+}
+.logo img {
+  height: 67px;
+}
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: #fff solid 0.740741px !important;
+  border-radius: 12px;
+  padding-right: 10px;
+  width: 405px;
+  margin-bottom: 26px;
+}
+.input-container input {
+  width: 405px;
+  border-radius: 12px;
+  color: rgb(255 255 255);
+
+  outline: none;
+  border: none;
+  padding: 12px;
+  box-shadow: none;
+  line-height: 22.001px;
+  font-size: 16px;
+  font-weight: 500;
+  caret-color: #fff;
+  background-color: transparent !important;
+}
+.input-container input::placeholder {
+  color: #fff;
+  font-weight: 500;
+}
+.gacha {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+.gacha img {
+  border-radius: 6px;
+  width: 112px;
+  height: 36px;
+  object-fit: cover;
+}
+.main-logo img {
+  height: 3.5rem;
+}
+
+.title p,
+.forgot-password {
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 48px;
+  width: 100%;
+}
+
+.forgot-password {
+  display: block;
+  text-align: right;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+.btn-login {
+  width: 405px;
+  height: 48px;
+  min-width: 48px;
+  padding: 2px 24px;
+  border-radius: 12px;
+  display: block;
+  border: none;
+  background-image: radial-gradient(
+    91.68% 546.71% at 104.23% 0%,
+    rgba(0, 47, 80, 0.88) 0%,
+    rgba(10, 71, 111, 0.88) 10.98%,
+    rgba(13, 98, 159, 0.88) 85.34%
+  );
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.btn-login:hover {
+  background-image: radial-gradient(
+    91.68% 546.71% at 104.23% 0%,
+    rgba(0, 47, 80, 0.88) 0%,
+    rgba(10, 71, 111, 0.88) 10.98%,
+    rgba(13, 98, 159, 0.88) 85.34%
+  );
+}
+
+.info-icon {
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+.eye-off-icon {
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+}
+.reset-capcha-icon {
+  font-size: 34px;
+  color: #fff;
+  cursor: pointer;
+}
