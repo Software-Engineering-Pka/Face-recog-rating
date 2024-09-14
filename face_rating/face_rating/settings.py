@@ -82,8 +82,8 @@ DATABASES = {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "face_rating",
         "USER": "root",
-        "PASSWORD": "dinhthai2004",
-        "HOST": "127.0.0.1",
+        "PASSWORD": "Kduien@123",
+        "HOST": "localhost",
         "PORT": "3306",
     }
 }
