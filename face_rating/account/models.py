@@ -36,7 +36,7 @@ class AccountModel(AbstractBaseUser):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
-    face_image = models.ImageField(max_length=255, upload_to="images/")
+    face_image = models.ImageField(max_length=255, upload_to="images/", null=True)
     face_image_encoding = models.TextField(null=True)
     hide_email = models.BooleanField(default=True)
     
