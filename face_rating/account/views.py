@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import SignUpForm, SignInForm
 from .models import AccountModel
 from django.contrib.auth import login,authenticate,logout
+
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
