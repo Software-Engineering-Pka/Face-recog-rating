@@ -1,10 +1,54 @@
-{% extends 'face_rating_app/base.html' %}
-
-{% block content %}
-    <form action="" method="post" enctype="multipart/form-data">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" ></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" ></script>
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="logo">
+        <img src="{% static 'images/logo-white.svg' %}" alt="" />
+      </div>
+      <div class="main-logo">
+        <img src="{% static 'images/banner.svg' %}" alt="" />
+      </div>
+ 
+      <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Đăng ký</button>
-    </form>
-{% endblock content %}
-    
+
+        <div class="input-container">
+          <input type="email" aria-describedby="emailHelp" placeholder="Tên đăng nhập " name="email" id="id_email"/>
+          <ion-icon name="information-circle-outline" class="info-icon"></ion-icon>
+        </div>
+        <div class="input-container">
+          <input type="text" class="" id="exampleInputEmail1" placeholder="Username" name="username" id="id_username"/>
+          <ion-icon name="information-circle-outline" class="info-icon"></ion-icon>
+        </div>
+        <div class="input-container">
+            <input type="file" class=""  placeholder="Image" name="face_image" id="id_face_image"/>
+            <ion-icon name="information-circle-outline" class="info-icon"></ion-icon>
+          </div>
+            <input type="text" class="" id="exampleInputEmail1" placeholder="face_image_encoding" name="face_image_encoding" id="id_face_image_encoding" value="hello" hidden/>
+        <div class="input-container">
+          <input type="password" class="" name="password1" id="id_password1" placeholder="Mật khẩu" required/>
+          <ion-icon name="eye-off-outline" class="eye-off-icon"></ion-icon>
+        </div>
+        <div class="input-container">
+          <input type="password" class="" name="password2" id="id_password2" placeholder="Nhập lại mật khẩu" required/>
+          <ion-icon name="eye-off-outline" class="eye-off-icon"></ion-icon>
+        </div>
+ 
+        <a href="" class="forgot-password">Đã có tài khoản?</a>
+        <button class="btn-login" type="submit">Đăng ký</button>
+      </form>
+    </div>
+  </body>
+</html>

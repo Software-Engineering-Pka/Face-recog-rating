@@ -1,0 +1,29 @@
+{% extends "face_rating_app/base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/face_id.css' %}">
+{% endblock css %}
+{% block content %}
+<div>
+    <button id="take_photo">Take photo now</button>
+    <input type="file" id="select_picture">
+    <div id="video-container" style="display: none;">
+        <video src="" id="video-webcam" height="480" width="640" autoplay style="transform: scaleX(-1);"></video>
+        <canvas width="640" height="480"></canvas>
+        <div>
+            <form action="" method="post" >
+                {% csrf_token %}
+                <button type="submit" id="btn">Enter</button>
+                <input type="text" name="imageData" id="imageData" hidden>
+            </form>
+        </div>
+    </div>
+    <div id="result-container">
+        <p id="result"></p>
+    </div>
+</div>
+{% block js %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'js/face_rating.js' %}"></script>
+{% endblock js %}
+{% endblock content %}

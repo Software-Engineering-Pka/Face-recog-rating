@@ -2,7 +2,13 @@ from django.shortcuts import render, redirect
 from .forms import SignUpForm, SignInForm
 from .models import AccountModel
 from django.contrib.auth import login,authenticate,logout
+<<<<<<< HEAD
 
+=======
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+>>>>>>> 11eb080bead5f005837892f3fd52a70ff4b9a65c
 from face_recognition_app.face_recog_model import face_recog_model
 import os
 from django.conf import settings
