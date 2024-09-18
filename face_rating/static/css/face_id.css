@@ -1,9 +1,110 @@
+body, html {
+    font-family: Arial, sans-serif;
+    background-image: url(../images/bg.avif);
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    height: 100vh;
+    width: 100%; 
+}
+#video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+#video-webcam {
+    border: 5px dashed rgba(0, 106, 255, 0.726);
+}
 canvas {
     position: absolute;
     top: 200px;
     left: 200px;
     display: none; /* Ẩn canvas sau khi chụp ảnh */
 }
-video {
-    margin-left: 20%;
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    
+}
+#btn {
+    position: absolute;
+    top: 90%; /* Căn giữa theo chiều dọc */
+    left: 50%; /* Căn giữa theo chiều ngang */
+    transform: translate(-50%, -50%); /* Đẩy phần tử ra giữa vị trí đã xác định bởi top và left */
+    /* Thêm các thuộc tính khác nếu cần */
+    width: 30%; /* Ví dụ chiều rộng */
+    height: 30px; /* Ví dụ chiều cao */
+    background-color: rgb(0, 140, 255); /* Màu nền ví dụ */
+}
+.action-buttons {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.action-buttons button:first-child{
+    
+    background-color: transparent;
+    height: 90px;
+    width: 100px;
+    background-image: url(../images/camera.png);
+    background-size: cover;     /* background-image: radial-gradient(91.68% 546.71% at 104.23% 0%, rgba(148, 169, 204, 0.88) 0%, rgba(52, 68, 108, 0.88) 10.98%, rgba(32, 21, 188, 0.88) 85.34%) */
+    border-width:0px ;
+}
+#select_photo{
+    margin-left: 20px;
+    background-color: transparent;
+    background-image: url(../images/select-picture.png);
+    background-size: cover;     /* background-image: radial-gradient(91.68% 546.71% at 104.23% 0%, rgba(148, 169, 204, 0.88) 0%, rgba(52, 68, 108, 0.88) 10.98%, rgba(32, 21, 188, 0.88) 85.34%) */
+    height: 95px;
+    width: 120px;
+    border-width:0px ;
+
+}
+
+
+
+
+
+main {
+    padding: 20px;
+}
+
+
+#result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.rating_section {
+    margin-top: 20px;
+    height: 300px;
+    width: 40%;
+    display: none;
+}
+
+.rating_item {
+    margin-bottom: 20px;
+    padding: 2px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.rating_item h2 {
+    margin: 0 0 10px;
+    color: #4CAF50;
+}
+
+.rating_item p {
+    margin: 0;
+    color: #555;
+}
+#editedImage {
+    border: 5px dashed rgba(0, 106, 255, 0.726);
+    margin-left: 10%;
+    margin-top: 7%;
 }

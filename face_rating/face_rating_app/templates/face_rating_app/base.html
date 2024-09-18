@@ -21,22 +21,20 @@
                 <ul>
                    
                     <li><a href="{% url 'face_recognition_app:face_recognition_app' %}">Face recognition</a></li>
-                    <li><a href="{% url 'face_rating_app:face_rating' %}">Face rating</a></li>
                     <li><a href="{% url 'account:face_id' %}">Sign in with face id</a></li>
                     <li><a href="">{{request.user.username}}</a></li>
-
-              
+                    {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'account:signout'  %}">Signout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'account:signin'  %}">Signin</a></li>
+                    <br>
+                    <br>
+                    <li><a href="{% url 'account:signup'  %}">Signup</a></li>
+                    {% endif %}
                 </ul>
             </nav>
             <div class="sign-in">
-                {% if request.user.is_authenticated %}
-                <li><a href="{% url 'account:signout'  %}" class="btn-signin">Signout</a></li>
-                {% else %}
-                <li><a href="{% url 'account:signin'  %}" class="btn-signin">Signin</a></li>
-                <br>
-                <br>
-                <li><a href="{% url 'account:signup'  %}" class="btn-signin">Signup</a></li>
-                {% endif %}
+              
               
             </div>
         </div>

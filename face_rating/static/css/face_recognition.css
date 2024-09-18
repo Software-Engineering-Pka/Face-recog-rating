@@ -1,0 +1,30 @@
+body, html {
+    font-family: Arial, sans-serif;
+    background-image: url(../images/bg.avif);
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    height: 100vh;
+    width: 100%; 
+}
+#stop-webcam {
+    position: absolute;
+    top: 90%; /* Căn giữa theo chiều dọc */
+    left: 50%; /* Căn giữa theo chiều ngang */
+    transform: translate(-50%, -50%); /* Đẩy phần tử ra giữa vị trí đã xác định bởi top và left */
+    /* Thêm các thuộc tính khác nếu cần */
+    width: 30%; /* Ví dụ chiều rộng */
+    height: 30px; /* Ví dụ chiều cao */
+    background-color: rgb(0, 140, 255); /* Màu nền ví dụ */
+}
+img {
+    border: 5px dashed rgba(0, 106, 255, 0.726);
+
+}
+#recog-page {
+    position: absolute;
+    left: 50%; /* Căn giữa theo chiều ngang */
+    transform: translate(-50%, -50%); /* Đẩy phần tử ra giữa vị trí đã xác định bởi top và left */
+
+    background-color: rgb(0, 140, 255); /* Màu nền ví dụ */
+}

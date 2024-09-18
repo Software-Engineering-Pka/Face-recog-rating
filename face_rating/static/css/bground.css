@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: Arial, sans-serif;
+    background-image: url(../images/bg.avif);
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    width: 100%; 
+}
+
+.container-content {
+
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.overlay {
+    background: transparent;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+}
+.overlay p{
+    margin-top: 10px;
+}
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: 1px solid white;
+    padding: 10px 20PX;
+    border-radius: 5px;
+    width: fit-content;
+    display: block;
+    margin: 0 auto;
+}
+
+
+p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.start-btn {
+    background-color:transparent;
+    color: white;
+    padding: 8px 25px;
+    font-size: 1.2em;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.test-options {
+    margin-top: 20px;
+}
+
+.test-btn {
+    background-color: transparent;
+    color: white;
+    padding: 10px 25px;
+    font-size: 1em;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.privacy {
+    font-size: 0.8em;
+    margin-top: 30px;
+    color: rgb(255, 255, 255);
+}
+
+
+
+.sign-in a {
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.sign-in a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.logo img{
+    width: 40px;
+    height: 50px;
+    transition: transform 0.1s ease-in-out;
+    margin-top: 0;
+
+}
+hr{
+    margin-top: 60px;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+h2{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 10px;
+}

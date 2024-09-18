@@ -4,14 +4,19 @@ $(document).ready(function() {
     const $videoContainer = $('#video-container');
     const $imageData = $('#imageData');
     const $result = $('#result');
+    const $face_rating_btn = $("#face_rating_btn")
     let stream = null;  
-
+    let $overlay = $(".overlay")
+    let $rating_session = $("#rating_section")
     async function streamWebcam() {
         stream = await navigator.mediaDevices.getUserMedia({ video: true });
         $video[0].srcObject = stream;
     }
 
     $('#take_photo').click(async function() {
+        $(".container-content").css({
+            display:"none"
+        })
         await streamWebcam(); 
         $videoContainer.show();
     });
@@ -39,37 +44,62 @@ $(document).ready(function() {
             },
             success: function(response) {
                 $result.text(response.result);
+                $('#editedImage').attr('src', 'data:image/jpeg;base64,' + response.edited_image);
+                $('#editedImage').css({
+                    display:"block"
+                })
+                console.log("Hello",response.edited_image)
+                $rating_session.css({
+                    display:"block"
+                })
             },
             error: function(xhr, status, error) {
                 console.error("An error occurred:", error);
             }
         });
     });
+    // document.getElementById("select_photo").addEventListener("click", function() {
+    //     $('#select_picture').files[0] = "ssa.pdf"
+    //     document.getElementById("select_picture").click();
 
-    $('#select_picture').change(function() {
-        const file = this.files[0];
-        if (file) {
-            const formData = new FormData();
-            formData.append('image', file);
-            $.ajax({
-                url: '/upload/',
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                headers: {
-                    'X-CSRFToken': getCookie('csrftoken')
-                },
-                success: function(response) {
-                    $result.text(response.result);
-                    console.log('Upload successful:', response);
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error:', error);
-                }
-            });
-        }
-    });
+    //     handle_change_input()
+    // });
+        $('#select_picture').change(function() {
+            const file = this.files[0];
+            if (file) {
+                const formData = new FormData();
+                formData.append('image', file);
+                $.ajax({
+                    url: '/upload/',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    headers: {
+                        'X-CSRFToken': getCookie('csrftoken')
+                    },
+                    success: function(response) {
+                        $result.text(response.result);
+                        $('#editedImage').attr('src', 'data:image/jpeg;base64,' + response.edited_image);
+                        $('#editedImage').css({
+                            display:"block"
+                        })
+                        $overlay.css({
+                            display:"none"
+                        })
+                        $rating_session.css({
+                            display:"block"
+                        })
+                        console.log('Upload successful:', response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            }
+        });
+    
+    
 
     function getCookie(name) {
         let cookieValue = null;
@@ -83,4 +113,15 @@ $(document).ready(function() {
         }
         return cookieValue;
     }
+    $face_rating_btn.on("click",function () {
+        $(".action-buttons").css({
+            display:"block"
+        })
+        $(".test-options").css({
+            display:"none"
+        })
+     
+  
+        
+    })
 });

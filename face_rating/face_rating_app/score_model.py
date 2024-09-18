@@ -10,13 +10,11 @@ class ScoreModel:
         self.jawline_points = shape[0:17]
         
     def calculate_face_width(self):
-        # Điểm ngoài cùng bên trái và bên phải của đường viền hàm
-        left_jaw_point = self.jawline_points[0]  # Điểm số 1 trong bộ landmark (góc ngoài cùng bên trái của hàm)
-        right_jaw_point = self.jawline_points[-1]  # Điểm số 17 trong bộ landmark (góc ngoài cùng bên phải của hàm)
+        left_jaw_point = self.jawline_points[0]  
+        right_jaw_point = self.jawline_points[-1]  
         
         # Tính độ rộng của khuôn mặt
         face_width = np.linalg.norm(left_jaw_point - right_jaw_point)
-        
         return face_width
     def score_distance(self,points):
         list_points = []

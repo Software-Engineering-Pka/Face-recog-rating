@@ -2,11 +2,61 @@
 {% load static %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/face_id.css' %}">
+<link rel="stylesheet" href="{% static 'css/bground.css' %}">
 {% endblock css %}
 {% block content %}
-<div>
-    <button id="take_photo">Take photo now</button>
-    <input type="file" id="select_picture">
+<div class="get-picture-group">
+    <div id="result-container">
+        <div class="rating_section" id="rating_section">
+            <div class="rating_item">
+                <h2>Hàm: </h2>
+                <p>Đánh giá về hình dạng và cấu trúc của hàm.</p>
+            </div>
+            <div class="rating_item">
+                <h2>Mũi: </h2>
+                <p>Đánh giá về kích thước và hình dáng của mũi.</p>
+            </div>
+            <div class="rating_item">
+                <h2>Mắt: </h2>
+                <p>Đánh giá về kích thước, hình dáng và độ cân đối của mắt.</p>
+            </div>
+            <div class="rating_item">
+                <h2>Môi: </h2>
+                <p>Đánh giá về kích thước và độ đầy đặn của môi.</p>
+            </div>
+            <div class="rating_item">
+                <h2>Tổng thể khuôn mặt: </h2>
+                <h5 id="result" style="color: black;"></h5>
+            </div>
+        </div>
+        <img id="editedImage" src="" alt="Edited Image"  height="400px" width="300px" style="display: none;"/>
+
+    </div>
+    <div class="container-content">
+        
+        <div class="overlay">
+            <h1>Am I Beautiful or Ugly?</h1>
+            <p>Am I pretty ? Am I ugly ? <br>
+            Why am I ugly ? or not pretty enough ?<br>
+            Online test for face beauty analysis.<br>
+            Analyze your face in 1 minutes.<br>
+            Rate my face 1-10. How beautiful am I?<br>
+            Are you pretty? Ask us with confidentiality.<br>
+            Upload photo or use webcam.</p>
+            <div class="test-options">
+              <a href="{% url 'face_recognition_app:face_recognition_app' %}" class="test-btn">Face test</a>
+              <button class="test-btn" id="face_rating_btn">Face Rating</button>  
+            </div>
+            <hr>
+            <div class="action-buttons" style="display: none;">
+                    <button id="take_photo"></button>
+                    <button id="select_photo"></button>
+                    <input type="file" id="select_picture" >
+            </div>
+
+        </div>
+    </div>
+    
     <div id="video-container" style="display: none;">
         <video src="" id="video-webcam" height="480" width="640" autoplay style="transform: scaleX(-1);"></video>
         <canvas width="640" height="480"></canvas>
@@ -18,12 +68,11 @@
             </form>
         </div>
     </div>
-    <div id="result-container">
-        <p id="result"></p>
-    </div>
+   
 </div>
 {% block js %}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{% static 'js/face_rating.js' %}"></script>
+
 {% endblock js %}
 {% endblock content %}
