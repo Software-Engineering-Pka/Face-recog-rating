@@ -22,7 +22,6 @@ canvas {
     left: 200px;
     display: none; /* Ẩn canvas sau khi chụp ảnh */
 }
-<<<<<<< HEAD
 
 .action-buttons {
     display: flex;
@@ -108,8 +107,7 @@ main {
     border: 5px dashed rgba(0, 106, 255, 0.726);
     margin-left: 10%;
     margin-top: 7%;
-=======
+}
 video {
     margin-left: 27.5%;
->>>>>>> e10dad0685521669a2faf91c7601d99f0514f412
 }

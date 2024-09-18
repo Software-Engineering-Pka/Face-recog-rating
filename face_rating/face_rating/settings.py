@@ -76,7 +76,12 @@ WSGI_APPLICATION = 'face_rating.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "mydatabase",
+    }
+}
 # DATABASES = {
 #     "default": {
 #         "ENGINE": "django.db.backends.mysql",
@@ -87,21 +92,18 @@ WSGI_APPLICATION = 'face_rating.wsgi.application'
 #         "PORT": "3306",
 #     }
 # }
-DATABASES = {
-    "default": {
-<<<<<<< HEAD
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "mydatabase",
-=======
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "face_rating",
-        "USER": "root",
-        "PASSWORD": "Kduien@123",
-        "HOST": "localhost",
-        "PORT": "3306",
->>>>>>> e10dad0685521669a2faf91c7601d99f0514f412
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": "mydatabase",
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME": "face_rating",
+#         "USER": "root",
+#         "PASSWORD": "Kduien@123",
+#         "HOST": "localhost",
+#         "PORT": "3306",
+#     }
+# }
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
