@@ -89,8 +89,17 @@ WSGI_APPLICATION = 'face_rating.wsgi.application'
 # }
 DATABASES = {
     "default": {
+<<<<<<< HEAD
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": "mydatabase",
+=======
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "face_rating",
+        "USER": "root",
+        "PASSWORD": "Kduien@123",
+        "HOST": "localhost",
+        "PORT": "3306",
+>>>>>>> e10dad0685521669a2faf91c7601d99f0514f412
     }
 }
 # Password validation
