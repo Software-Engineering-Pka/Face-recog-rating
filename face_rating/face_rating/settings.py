@@ -84,7 +84,7 @@ DATABASES = {
 }
 # DATABASES = {
 #     "default": {
-#         "ENGINE": "django.db.backends.mysql",
+#         "ENGINE": "django.db.backends.mysql",s
 #         "NAME": "face_rating",
 #         "USER": "root",
 #         "PASSWORD": "dinhthai2004",
