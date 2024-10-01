@@ -28,3 +28,7 @@ img {
 
     background-color: rgb(0, 140, 255); /* Màu nền ví dụ */
 }
+#video_feed {
+    display: flex;
+    justify-content: center;
+}

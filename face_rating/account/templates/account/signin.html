@@ -1,12 +1,56 @@
-{% extends 'face_rating_app/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/sign_in.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'face_recognition_app:face_recognition_app' %}">Face recognition</a></li>
+            <li><a href="{% url 'account:face_id' %}">Sign in with face id</a></li>
+            <li><a href="">{{request.user.username}}</a></li>
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'account:signout'  %}">Signout</a></li>
+            {% else %}
+            <li><a href="{% url 'account:signin'  %}">Signin</a></li>
+            <br>
+            <br>
+            <li><a href="{% url 'account:signup'  %}">Signup</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div class="login-container">
+        <div class="login-form">
+            <h1 id = "welcome">Welcome</h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                        <div class="textbox">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="Email" required id= "email" name="email">
+                </div>
+                <div class="textbox">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Password" id="password" name="password" required>
+                </div>
 
-{% block content %}
+                <div class="alternative_login">
+                    <p>Or sign in with face ID</p>
+                    <a href="{% url 'account:face_id' %}" class="face_id">
+                        <img src="{% static 'images/face_id.png' %}"alt="Face ID">
+                    </a>
+                </div>
+                <button type="submit" class="login-btn">Sign In</button>
 
-<form method="post">
-    {% csrf_token %}
-    <label for="login">Email:</label><input type="email" name="email" id="email">
-    <label for="password">Password:</label><input type="password" name="password" id="password">
-    <button type="submit">Login</button>
-</form>
-{% endblock content %}
-    
+                <div class="register_link">
+                    <p>Don't have an account? <a href="#">Register</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -51,17 +51,17 @@
             <div class="action-buttons" style="display: none;">
                     <button id="take_photo"></button>
                     <button id="select_photo"></button>
-                    <input type="file" id="select_picture" >
+                    <input type="file" id="select_picture" hidden>
             </div>
 
         </div>
     </div>
     
-    <div id="video-container" style="display: none;">
+    <div id="video-container2" style="display: none;">
         <video src="" id="video-webcam" height="480" width="640" autoplay style="transform: scaleX(-1);"></video>
         <canvas width="640" height="480"></canvas>
         <div>
-            <form action="" method="post" >
+            <form action="" method="post">
                 {% csrf_token %}
                 <button type="submit" id="btn">Enter</button>
                 <input type="text" name="imageData" id="imageData" hidden>

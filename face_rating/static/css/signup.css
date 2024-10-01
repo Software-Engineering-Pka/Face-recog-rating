@@ -6,6 +6,34 @@
 }
 body {
   font-size: 14px;
+  
+}
+#welcome {
+  color: #fff;
+  font-size: 50px;
+  padding-bottom: 20px;
+}
+nav ul li {
+  padding: 5px;
+  list-style: none;
+  
+}
+.container {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav > ul {
+display: flex;
+position: absolute;
+top: 50px;
+justify-content: center;
+width: 100%;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
 }
 .login-container {
   background-image: url(../images/bg.avif);
@@ -19,6 +47,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 40px;
+  padding-top: 10%;
 }
 .logo {
   width: 100%;

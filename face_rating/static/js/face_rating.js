@@ -1,7 +1,7 @@
 $(document).ready(function() {
     const $video = $('#video-webcam');
     const $canvas = $('canvas');
-    const $videoContainer = $('#video-container');
+    const $videoContainer = $('#video-container2');
     const $imageData = $('#imageData');
     const $result = $('#result');
     const $face_rating_btn = $("#face_rating_btn")
@@ -18,6 +18,9 @@ $(document).ready(function() {
             display:"none"
         })
         await streamWebcam(); 
+        $videoContainer.css({
+            display:"block"
+        })
         $videoContainer.show();
     });
 
@@ -58,13 +61,12 @@ $(document).ready(function() {
             }
         });
     });
-    // document.getElementById("select_photo").addEventListener("click", function() {
-    //     $('#select_picture').files[0] = "ssa.pdf"
-    //     document.getElementById("select_picture").click();
 
-    //     handle_change_input()
-    // });
-        $('#select_picture').change(function() {
+    $("#select_photo").off("click").on("click", function() {
+        $('#select_picture').click();
+    });
+    
+    $('#select_picture').on("change",function() {
             const file = this.files[0];
             if (file) {
                 const formData = new FormData();
@@ -97,7 +99,7 @@ $(document).ready(function() {
                     }
                 });
             }
-        });
+    });
     
     
 
@@ -120,8 +122,5 @@ $(document).ready(function() {
         $(".test-options").css({
             display:"none"
         })
-     
-  
-        
     })
 });

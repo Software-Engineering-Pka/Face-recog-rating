@@ -16,8 +16,9 @@ class face_recog_model:
         for account in accounts:
             self.exised_face_names.append(account.username)
             print(account.face_image_encoding)
-            encoding = np.array(json.loads(account.face_image_encoding))
-            self.existed_face_encodings.append(encoding)
+            if account.face_image_encoding:
+                encoding = np.array(json.loads(account.face_image_encoding))
+                self.existed_face_encodings.append(encoding)
         # images_path = glob.glob(os.path.join(images_folder_address, "*.*"))
         # print(f"Found {len(images_path)}")
         # for image_path in images_path:

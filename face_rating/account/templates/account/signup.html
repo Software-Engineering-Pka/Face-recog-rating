@@ -13,14 +13,24 @@
     <title>Sign Up</title>
   </head>
   <body>
+    <nav>
+      <ul>
+          <li><a href="{% url 'face_recognition_app:face_recognition_app' %}">Face recognition</a></li>
+          <li><a href="{% url 'account:face_id' %}">Sign in with face id</a></li>
+          <li><a href="">{{request.user.username}}</a></li>
+          {% if request.user.is_authenticated %}
+          <li><a href="{% url 'account:signout'  %}">Signout</a></li>
+          {% else %}
+          <li><a href="{% url 'account:signin'  %}">Signin</a></li>
+          <br>
+          <br>
+          <li><a href="{% url 'account:signup'  %}">Signup</a></li>
+          {% endif %}
+      </ul>
+  </nav>
+  <div class = "container">
     <div class="login-container">
-      <div class="logo">
-        <img src="{% static 'images/logo-white.svg' %}" alt="" />
-      </div>
-      <div class="main-logo">
-        <img src="{% static 'images/banner.svg' %}" alt="" />
-      </div>
- 
+      <h1 id = "welcome">Welcome</h1>
       <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
@@ -50,5 +60,6 @@
         <button class="btn-login" type="submit">Đăng ký</button>
       </form>
     </div>
+  </div>
   </body>
 </html>
