@@ -34,7 +34,7 @@ class ScoreModel:
 
         # print(f"Điểm đối xứng đường viền hàm: {symmetry_score:.2f}")
 
-        score = 10 - abs(5-symmetry_score)
+        score = abs(10 - abs(5-symmetry_score))
         return score
             
     def score_eye(self):

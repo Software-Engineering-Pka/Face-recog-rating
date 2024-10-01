@@ -81,7 +81,18 @@ $(document).ready(function() {
                         'X-CSRFToken': getCookie('csrftoken')
                     },
                     success: function(response) {
-                        $result.text(response.result);
+                        // let result = response.result
+                        let resultString = response.result;
+
+                        resultString = resultString.replace(/'/g, '"');
+
+                        let parsedResult = JSON.parse(resultString);
+                        $("#point_rating_jawline").text(parsedResult["Jawline"]);
+                        $("#point_rating_nose").text(parsedResult["Nose"]);
+                        $("#point_rating_eye").text(parsedResult["Eye"]);
+                        $("#point_rating_lip").text(parsedResult["Mouth"]);
+                        console.log(response.result['Jawline'])
+                        $result.text(parsedResult["Mean"]);
                         $('#editedImage').attr('src', 'data:image/jpeg;base64,' + response.edited_image);
                         $('#editedImage').css({
                             display:"block"

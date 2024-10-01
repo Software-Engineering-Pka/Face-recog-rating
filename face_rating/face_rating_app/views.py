@@ -11,9 +11,7 @@ from PIL import Image
 import numpy as np
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-# Create your views here.
-# def home(request):
-#     return render(request,"face_rating_app/home.html")
+
 def face_rating(request):
     if request.method == "POST":
         try:
@@ -23,7 +21,10 @@ def face_rating(request):
             image = np.array(Image.open(BytesIO(image_data)))
             result = scoring_face(image)
             result=str(result)
-            return JsonResponse({"result":result})
+            return JsonResponse({
+                'result': result,
+                'edited_image': base64_data
+            })
         except: 
             print("error")
  

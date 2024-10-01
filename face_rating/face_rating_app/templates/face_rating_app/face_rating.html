@@ -9,20 +9,20 @@
     <div id="result-container">
         <div class="rating_section" id="rating_section">
             <div class="rating_item">
-                <h2>Hàm: </h2>
-                <p>Đánh giá về hình dạng và cấu trúc của hàm.</p>
+                <h2>Hàm: <h2 id="point_rating_jawline"></h2></h2>
+                <p id="str_rating_jawline">Đánh giá về hình dạng và cấu trúc của hàm.</p>
             </div>
             <div class="rating_item">
-                <h2>Mũi: </h2>
-                <p>Đánh giá về kích thước và hình dáng của mũi.</p>
+                <h2>Mũi: <h2 id="point_rating_nose"></h2></h2>
+                <p id="str_rating_nose">Đánh giá về kích thước và hình dáng của mũi.</p>
             </div>
             <div class="rating_item">
-                <h2>Mắt: </h2>
-                <p>Đánh giá về kích thước, hình dáng và độ cân đối của mắt.</p>
+                <h2>Mắt: <h2 id="point_rating_eye"></h2></h2>
+                <p id="str_rating_eye">Đánh giá về kích thước, hình dáng và độ cân đối của mắt.</p>
             </div>
             <div class="rating_item">
-                <h2>Môi: </h2>
-                <p>Đánh giá về kích thước và độ đầy đặn của môi.</p>
+                <h2>Môi: <h2 id="point_rating_lip"></h2></h2>
+                <p id="str_rating_lip">Đánh giá về kích thước và độ đầy đặn của môi.</p>
             </div>
             <div class="rating_item">
                 <h2>Tổng thể khuôn mặt: </h2>
@@ -58,7 +58,12 @@
     </div>
     
     <div id="video-container2" style="display: none;">
-        <video src="" id="video-webcam" height="480" width="640" autoplay style="transform: scaleX(-1);"></video>
+        <video src="" id="video-webcam" height="480" width="640" autoplay style="    position: absolute;
+    border: 5px dashed rgba(0, 106, 255, 0.726);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    "></video>
         <canvas width="640" height="480"></canvas>
         <div>
             <form action="" method="post">
