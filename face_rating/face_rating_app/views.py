@@ -19,15 +19,16 @@ def face_rating(request):
             header, base64_data = base64_string.split(';base64,')
             image_data = base64.b64decode(base64_data)
             image = np.array(Image.open(BytesIO(image_data)))
-            result = scoring_face(image)
-            result=str(result)
+            result,edited_image_path = scoring_face(image)
+            with open(edited_image_path, "rb") as img_file:
+                img_base64 = base64.b64encode(img_file.read()).decode('utf-8')
+
             return JsonResponse({
                 'result': result,
-                'edited_image': base64_data
+                'edited_image': img_base64
             })
-        except: 
+        except:
             print("error")
- 
     return render(request,"face_rating_app/face_rating.html")
 
 def scoring_face(image):

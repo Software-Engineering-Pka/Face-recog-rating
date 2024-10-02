@@ -31,7 +31,7 @@ $(document).ready(function() {
         ctx.drawImage($video[0], 0, 0, $canvas[0].width, $canvas[0].height);
         const imageData = $canvas[0].toDataURL('image/png');
         $imageData.val(imageData);
-        console.log($imageData.val());
+        // console.log($imageData.val());
 
         if (stream) {
             stream.getTracks().forEach(track => track.stop());
@@ -46,7 +46,19 @@ $(document).ready(function() {
                 'csrfmiddlewaretoken': $('input[name="csrfmiddlewaretoken"]').val()
             },
             success: function(response) {
-                $result.text(response.result);
+                // $result.text(response.result);
+                let resultString = response.result;
+                console.log(resultString)
+                let parsedResult = resultString
+                console.log(parsedResult)
+
+                $("#point_rating_jawline").text(parsedResult["Jawline"]);
+
+                $("#point_rating_nose").text(parsedResult["Nose"]);
+                $("#point_rating_eye").text(parsedResult["Eye"]);
+                $("#point_rating_lip").text(parsedResult["Mouth"]);
+                console.log(response.result['Jawline'])
+                $result.text(parsedResult["Mean"]);
                 $('#editedImage').attr('src', 'data:image/jpeg;base64,' + response.edited_image);
                 $('#editedImage').css({
                     display:"block"
@@ -85,8 +97,9 @@ $(document).ready(function() {
                         let resultString = response.result;
 
                         resultString = resultString.replace(/'/g, '"');
-
                         let parsedResult = JSON.parse(resultString);
+                        console.log(parsedResult)
+
                         $("#point_rating_jawline").text(parsedResult["Jawline"]);
                         $("#point_rating_nose").text(parsedResult["Nose"]);
                         $("#point_rating_eye").text(parsedResult["Eye"]);

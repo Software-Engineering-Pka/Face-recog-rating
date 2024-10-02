@@ -35,7 +35,16 @@ class ScoreModel:
         # print(f"Điểm đối xứng đường viền hàm: {symmetry_score:.2f}")
 
         score = abs(10 - abs(5-symmetry_score))
-        return score
+        if 1 <= score <= 3:
+            return f"{score}đ - Đường jawline mờ nhạt, thiếu định hình rõ ràng hoặc không cân đối với khuôn mặt."
+        elif 4 <= score <= 6:
+            return f"{score}đ - Jawline hiện diện, nhưng không quá sắc nét; có thể thiếu đối xứng hoặc kém nổi bật."
+        elif 7 <= score <= 8:
+            return f"{score}đ - Đường jawline sắc nét, hài hòa với khuôn mặt, tạo cảm giác cân đối và khỏe khoắn."
+        elif 9 <= score <= 10:
+            return f"{score}đ - Jawline hoàn hảo, rõ ràng, mạnh mẽ và nổi bật, tạo nên điểm nhấn đặc trưng cho khuôn mặt."
+        else:
+            return f"{score}đ - Điểm không hợp lệ. Vui lòng nhập điểm từ 1 đến 10."
             
     def score_eye(self):
         left_mean_score = self.score_distance(self.left_eye)
@@ -47,7 +56,16 @@ class ScoreModel:
         else:
             print("2 mắt đối xứng")
         score = 9 - 0.5
-        return score
+        if 1 <= score <= 3:
+            return f"{score}đ - Mắt kém hài hòa, thiếu sắc nét, có thể thiếu sức sống hoặc không cân đối."
+        elif 4 <= score <= 6:
+            return f"{score}đ - Mắt bình thường, không quá nổi bật nhưng cũng không có khuyết điểm lớn."
+        elif 7 <= score <= 8:
+            return f"{score}đ - Mắt đẹp, cân đối, có sự thu hút, thể hiện rõ cảm xúc và sức sống."
+        elif 9 <= score <= 10:
+            return f"{score}đ - Mắt hoàn hảo, rất nổi bật, có chiều sâu, toát lên sự thu hút và tinh anh."
+        else:
+            return f"{score}đ - Điểm không hợp lệ. Vui lòng nhập điểm từ 1 đến 10."
     
     def score_mouth(self):
         # Tách các điểm tương ứng cho môi trên và môi dưới
@@ -77,7 +95,16 @@ class ScoreModel:
             'ratio_width': lip_width / self.calculate_face_width(),
             'score': score
         }
-        return score
+        if 1 <= score <= 3:
+            return f"{score}đ - Miệng không cân đối, đường nét kém rõ ràng, thiếu sức sống hoặc có khuyết điểm."
+        elif 4 <= score <= 6:
+            return f"{score}đ - Miệng bình thường, không quá nổi bật nhưng hài hòa với khuôn mặt."
+        elif 7 <= score <= 8:
+            return f"{score}đ - Miệng đẹp, cân đối, có đường nét rõ ràng và hài hòa với tổng thể."
+        elif 9 <= score <= 10:
+            return f"{score}đ - Miệng hoàn hảo, đầy đặn, quyến rũ, tạo cảm giác thu hút, nụ cười rạng rỡ."
+        else:
+            return f"{score}đ - Điểm không hợp lệ. Vui lòng nhập điểm từ 1 đến 10."
     def score_nose(self):
             # Đo độ rộng của cánh mũi
             nose_wing_left = np.linalg.norm(self.shape[31] - self.shape[35])  # Khoảng cách giữa các điểm cánh mũi trái và phải
@@ -92,14 +119,23 @@ class ScoreModel:
             # nose_score = {
             #     'score':score
             # }
-            return score
+            if 1 <= score <= 3:
+                return f"{score}đ - Mũi không cân đối, đường nét kém rõ ràng, có thể có khuyết điểm lớn."
+            elif 4 <= score <= 6:
+                return f"{score}đ - Mũi bình thường, không quá nổi bật nhưng hài hòa với khuôn mặt."
+            elif 7 <= score <= 8:
+                return f"{score}đ - Mũi đẹp, cân đối, có đường nét rõ ràng và hài hòa với tổng thể."
+            elif 9 <= score <= 10:
+                return f"{score}đ - Mũi hoàn hảo, sắc nét, có chiều sâu, tạo cảm giác thu hút và nổi bật."
+            else:
+                return f"{score}đ - Điểm không hợp lệ. Vui lòng nhập điểm từ 1 đến 10."
+
     def final_result(self):
         score_jawline = self.score_jawline()
         score_eye = self.score_eye()
         score_mouth = self.score_mouth()
         score_nose = self.score_nose()
-        
-        score_mean = (score_jawline + score_eye + score_mouth + score_nose) / 4 
+        score_mean = (float((score_jawline.split("đ"))[0]) + float((score_eye.split("đ"))[0]) + float((score_mouth.split("đ"))[0]) + float((score_nose.split("đ"))[0]))/4
         return {
             "Jawline":score_jawline,
             "Eye":score_eye,
