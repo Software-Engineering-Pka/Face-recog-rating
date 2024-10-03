@@ -32,9 +32,9 @@
         <img id="editedImage" src="" alt="Edited Image"  height="400px" width="300px" style="display: none;"/>
 
     </div>
-    <div class="container-content">
         
         <div class="overlay">
+            <div id= "intro">
             <h1>Am I Beautiful or Ugly?</h1>
             <p>Am I pretty ? Am I ugly ? <br>
             Why am I ugly ? or not pretty enough ?<br>
@@ -47,6 +47,7 @@
               <a href="{% url 'face_recognition_app:face_recognition_app' %}" class="test-btn">Face test</a>
               <button class="test-btn" id="face_rating_btn">Face Rating</button>  
             </div>
+        </div>
             <hr>
             <div class="action-buttons" style="display: none;">
                     <button id="take_photo"></button>
@@ -55,7 +56,6 @@
             </div>
 
         </div>
-    </div>
     
     <div id="video-container2" style="display: none;">
         <div id="video_rating" style="position: absolute;;top: 50%;left: 50%;transform: translate(-50%, -50%)">

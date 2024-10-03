@@ -18,7 +18,9 @@ from django.urls import reverse
 from io import BytesIO
 from PIL import Image
 import numpy as np
+from face_recognition_app.views import close_camera
 def signup(request):
+    close_camera()
     form = SignUpForm()
 
     if request.method == "POST":
@@ -35,6 +37,7 @@ def signup(request):
     return render(request,"account/signup.html",context)
 
 def signin(request):
+    close_camera()
     next = request.GET.get("next")
     form =SignInForm()
     if request.method == 'POST':
@@ -53,10 +56,12 @@ def signin(request):
     }
     return render(request,"account/signin.html",context)
 def signout(request):
+    close_camera()
     logout(request)
     return redirect("account:signin")
 
 def face_id_to_login(request):
+    close_camera()
     if request.method == "POST":
         try:
             base64_string = request.POST.get("imageData")
@@ -92,4 +97,5 @@ def face_id_to_login(request):
     return JsonResponse({'error': 'Invalid request method'}, status=400)
 
 def face_id(request):
+    close_camera()
     return render(request, "account/face_id.html")

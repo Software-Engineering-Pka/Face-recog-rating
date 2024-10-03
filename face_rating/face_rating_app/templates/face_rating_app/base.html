@@ -20,7 +20,7 @@
                 <ul>
                    
                     <li><a href="{% url 'face_recognition_app:face_recognition_app' %}">Face recognition</a></li>
-                    <li><a href="{% url 'account:face_id' %}">Sign in with face id</a></li>
+                    <li><a href="{% url 'face_rating_app:face_rating' %}">Face Rating</a></li>
                     <li><a href="">{{request.user.username}}</a></li>
                     {% if request.user.is_authenticated %}
                     <li><a href="{% url 'account:signout'  %}">Signout</a></li>
@@ -38,10 +38,13 @@
             </div>
         </div>
     </header>
-    
+    <div id = "content_container">
+
     {% block content %}
         
     {% endblock content %}
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         
     

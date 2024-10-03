@@ -34,14 +34,15 @@ class ScoreModel:
 
         # print(f"Điểm đối xứng đường viền hàm: {symmetry_score:.2f}")
 
-        score = abs(10 - abs(5-symmetry_score))
-        if 1 <= score <= 3:
+        score = float(round(abs(10 - abs(5-symmetry_score)) - 2,2))
+        score_floor = float(round(abs(10 - abs(5-symmetry_score)) - 2,0))
+        if 1 <= score_floor <= 3:
             return f"{score}đ - Đường jawline mờ nhạt, thiếu định hình rõ ràng hoặc không cân đối với khuôn mặt."
-        elif 4 <= score <= 6:
+        elif 4 <= score_floor <= 6:
             return f"{score}đ - Jawline hiện diện, nhưng không quá sắc nét; có thể thiếu đối xứng hoặc kém nổi bật."
-        elif 7 <= score <= 8:
+        elif 7 <= score_floor <= 8:
             return f"{score}đ - Đường jawline sắc nét, hài hòa với khuôn mặt, tạo cảm giác cân đối và khỏe khoắn."
-        elif 9 <= score <= 10:
+        elif 9 <= score_floor <= 10:
             return f"{score}đ - Jawline hoàn hảo, rõ ràng, mạnh mẽ và nổi bật, tạo nên điểm nhấn đặc trưng cho khuôn mặt."
         else:
             return f"{score}đ - Điểm không hợp lệ. Vui lòng nhập điểm từ 1 đến 10."
@@ -55,14 +56,15 @@ class ScoreModel:
             print("2 mắt không đối xứng")
         else:
             print("2 mắt đối xứng")
-        score = 9 - 0.5
-        if 1 <= score <= 3:
+        score = float(round(10 - delta_mean,2))
+        score_floor = float(round(10 - delta_mean,0))
+        if 1 <= score_floor <= 3:
             return f"{score}đ - Mắt kém hài hòa, thiếu sắc nét, có thể thiếu sức sống hoặc không cân đối."
-        elif 4 <= score <= 6:
+        elif 4 <= score_floor <= 6:
             return f"{score}đ - Mắt bình thường, không quá nổi bật nhưng cũng không có khuyết điểm lớn."
-        elif 7 <= score <= 8:
+        elif 7 <= score_floor <= 8:
             return f"{score}đ - Mắt đẹp, cân đối, có sự thu hút, thể hiện rõ cảm xúc và sức sống."
-        elif 9 <= score <= 10:
+        elif 9 <= score_floor <= 10:
             return f"{score}đ - Mắt hoàn hảo, rất nổi bật, có chiều sâu, toát lên sự thu hút và tinh anh."
         else:
             return f"{score}đ - Điểm không hợp lệ. Vui lòng nhập điểm từ 1 đến 10."
@@ -87,7 +89,8 @@ class ScoreModel:
         # Tính điểm dựa trên sự khác biệt giữa ratio_height và greate_ratio
         difference = abs(ratio_height - greate_ratio)
         # Chuyển đổi sự khác biệt thành điểm số trên thang 10
-        score = max(0, 10 - difference * 20)  # Tùy chỉnh hệ số (20) theo yêu cầu
+        score = float(round(max(0, 10 - difference * 20),2))  # Tùy chỉnh hệ số (20) theo yêu cầu
+        score_floor = float(round(max(0, 10 - difference * 20),0))  # Tùy chỉnh hệ số (20) theo yêu cầu
 
         # Tổng hợp các điểm đánh giá cho môi
         lip_score = {
@@ -95,13 +98,13 @@ class ScoreModel:
             'ratio_width': lip_width / self.calculate_face_width(),
             'score': score
         }
-        if 1 <= score <= 3:
+        if 1 <= score_floor <= 3:
             return f"{score}đ - Miệng không cân đối, đường nét kém rõ ràng, thiếu sức sống hoặc có khuyết điểm."
-        elif 4 <= score <= 6:
+        elif 4 <= score_floor <= 6:
             return f"{score}đ - Miệng bình thường, không quá nổi bật nhưng hài hòa với khuôn mặt."
-        elif 7 <= score <= 8:
+        elif 7 <= score_floor <= 8:
             return f"{score}đ - Miệng đẹp, cân đối, có đường nét rõ ràng và hài hòa với tổng thể."
-        elif 9 <= score <= 10:
+        elif 9 <= score_floor <= 10:
             return f"{score}đ - Miệng hoàn hảo, đầy đặn, quyến rũ, tạo cảm giác thu hút, nụ cười rạng rỡ."
         else:
             return f"{score}đ - Điểm không hợp lệ. Vui lòng nhập điểm từ 1 đến 10."
@@ -115,17 +118,18 @@ class ScoreModel:
             nose_bridge = np.linalg.norm(self.shape[27] - self.shape[30])  # Khoảng cách giữa điểm 27 và điểm 30
             face_width = self.calculate_face_width()
             greate_score_width = 0.2
-            score = ((nose_width/face_width)/greate_score_width)*10
+            score = float(round(((nose_width/face_width)/greate_score_width)*10,2))
+            score_foor = float(round(((nose_width/face_width)/greate_score_width)*10,0))
             # nose_score = {
             #     'score':score
             # }
-            if 1 <= score <= 3:
+            if 1 <= score_foor <= 3:
                 return f"{score}đ - Mũi không cân đối, đường nét kém rõ ràng, có thể có khuyết điểm lớn."
-            elif 4 <= score <= 6:
+            elif 4 <= score_foor <= 6:
                 return f"{score}đ - Mũi bình thường, không quá nổi bật nhưng hài hòa với khuôn mặt."
-            elif 7 <= score <= 8:
+            elif 7 <= score_foor <= 8:
                 return f"{score}đ - Mũi đẹp, cân đối, có đường nét rõ ràng và hài hòa với tổng thể."
-            elif 9 <= score <= 10:
+            elif 9 <= score_foor <= 10:
                 return f"{score}đ - Mũi hoàn hảo, sắc nét, có chiều sâu, tạo cảm giác thu hút và nổi bật."
             else:
                 return f"{score}đ - Điểm không hợp lệ. Vui lòng nhập điểm từ 1 đến 10."

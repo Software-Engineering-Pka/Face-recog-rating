@@ -67,6 +67,13 @@ $(document).ready(function() {
                 $rating_session.css({
                     display:"block"
                 })
+                $("#intro").css({
+                    display:"none"
+                })
+                $(".action-buttons").css({
+                    display:"block",
+                    marginTop:"600px",
+                })
             },
             error: function(xhr, status, error) {
                 console.error("An error occurred:", error);
@@ -113,8 +120,15 @@ $(document).ready(function() {
                         $overlay.css({
                             display:"none"
                         })
+                        $("#intro").css({
+                            display:"none"
+                        })
                         $rating_session.css({
                             display:"block"
+                        })
+                        $(".action-buttons").css({
+                            display:"block",
+                            marginTop:"600px",
                         })
                         console.log('Upload successful:', response);
                     },

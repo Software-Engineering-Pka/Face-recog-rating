@@ -11,8 +11,9 @@ from PIL import Image
 import numpy as np
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-
+from face_recognition_app.views import close_camera
 def face_rating(request):
+    close_camera()
     if request.method == "POST":
         try:
             base64_string = request.POST.get("imageData")
@@ -32,6 +33,7 @@ def face_rating(request):
     return render(request,"face_rating_app/face_rating.html")
 
 def scoring_face(image):
+    close_camera()
     p = os.path.join(settings.MEDIA_ROOT, "algorithm_files", "shape_predictor_68_face_landmarks.dat")
     detector = dlib.get_frontal_face_detector()
     predictor = dlib.shape_predictor(p)
@@ -81,6 +83,8 @@ def scoring_face(image):
 
 @csrf_exempt
 def upload_view(request):
+    close_camera()
+    
     if request.method == 'POST' and request.FILES.get('image'):
         image_file = request.FILES['image']
         

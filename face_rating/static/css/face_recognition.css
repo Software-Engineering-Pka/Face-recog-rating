@@ -21,6 +21,8 @@ img {
     border: 5px dashed rgba(0, 106, 255, 0.726);
 
 }
+
+
 #recog-page {
     position: absolute;
     left: 50%; /* Căn giữa theo chiều ngang */
@@ -31,4 +33,6 @@ img {
 #video_feed {
     display: flex;
     justify-content: center;
+    position: absolute;
+    top: 50%;left: 50%;transform: translate(-50%, -50%)
 }

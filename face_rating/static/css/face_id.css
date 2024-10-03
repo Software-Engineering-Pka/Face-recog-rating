@@ -12,6 +12,8 @@ body, html {
     justify-content: center;
     align-items: center;
     width: 100%;
+    position: absolute;
+    top: 50%;left: 50%;transform: translate(-50%, -50%)
 }
 #video-container2 {
     display: flex;
@@ -84,7 +86,7 @@ main {
 }
 
 .rating_section {
-    margin-top: 20px;
+    margin-top: -50px;
     height: 300px;
     width: 40%;
     display: none;

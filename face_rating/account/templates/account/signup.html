@@ -16,7 +16,7 @@
     <nav>
       <ul>
           <li><a href="{% url 'face_recognition_app:face_recognition_app' %}">Face recognition</a></li>
-          <li><a href="{% url 'account:face_id' %}">Sign in with face id</a></li>
+          <li><a href="{% url 'face_rating_app:face_rating' %}">Face Rating</a></li>
           <li><a href="">{{request.user.username}}</a></li>
           {% if request.user.is_authenticated %}
           <li><a href="{% url 'account:signout'  %}">Signout</a></li>
@@ -35,7 +35,7 @@
         {% csrf_token %}
 
         <div class="input-container">
-          <input type="email" aria-describedby="emailHelp" placeholder="Tên đăng nhập " name="email" id="id_email"/>
+          <input type="email" aria-describedby="emailHelp" placeholder="Email" name="email" id="id_email"/>
           <ion-icon name="information-circle-outline" class="info-icon"></ion-icon>
         </div>
         <div class="input-container">
@@ -56,7 +56,7 @@
           <ion-icon name="eye-off-outline" class="eye-off-icon"></ion-icon>
         </div>
  
-        <a href="" class="forgot-password">Đã có tài khoản?</a>
+        <a href="{% url 'account:signin'  %}" class="forgot-password">Have an acoount?</a>
         <button class="btn-login" type="submit">Đăng ký</button>
       </form>
     </div>
