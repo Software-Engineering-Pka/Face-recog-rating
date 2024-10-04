@@ -31,8 +31,7 @@ def face_rating(request):
                 session_model = RatingSessionsModel.objects.create(
                     account = account
                 )
-                print("hello")
-                print("Point",result["point"])
+
                 rating_model = RatingModel.objects.create(
                         session = session_model,
                         eye_point = result["point"]["Eye"],

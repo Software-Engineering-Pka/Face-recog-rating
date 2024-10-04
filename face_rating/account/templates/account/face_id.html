@@ -9,8 +9,12 @@
     <video src="" id="video-webcam" height="480" width="640" autoplay style="transform: scaleX(-1);"></video>
 </div>
 <canvas width="640" height="480"></canvas>
+
+<!-- Error message display -->
+<div id="error-message" style="color: red; display: none;margin-top:100px;font-size:50px"></div>
+
 <div>
-    <form action="{% url 'account:face_login' %}" method="post" >
+    <form id="face-login-form">
         {% csrf_token %}
         <button type="submit" id="btn">Click here to Sign In</button>
         <input type="text" name="imageData" id="imageData" hidden>
@@ -19,6 +23,40 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 {% endblock content %}
+
 {% block js %}
-    <script src="{% static 'js/face_id.js' %}"></script>
+<script src="{% static 'js/face_id.js' %}"></script>
+<script>
+    $(document).ready(function() {
+        $('#face-login-form').on('submit', function(event) {
+            event.preventDefault();  // Prevent form from submitting the traditional way
+
+            var imageData = $('#imageData').val();  // Get image data
+            var csrfToken = $("input[name='csrfmiddlewaretoken']").val();  // Get CSRF token
+
+            // AJAX request to submit the form data
+            $.ajax({
+                url: "{% url 'account:face_login' %}",  // The URL for your face login view
+                type: "POST",
+                data: {
+                    'csrfmiddlewaretoken': csrfToken,
+                    'imageData': imageData
+                },
+                success: function(response) {
+                    if (response.error) {
+                        // If there is an error, show the error message
+                        $('#error-message').text(response.error).show();
+                    } else {
+                        // Redirect to the appropriate page on successful login
+                        window.location.href = "{% url 'face_rating_app:face_rating' %}";
+                    }
+                },
+                error: function() {
+                    // Display a generic error message if the AJAX call fails
+                    $('#error-message').text('An unexpected error occurred. Please try again.').show();
+                }
+            });
+        });
+    });
+</script>
 {% endblock js %}

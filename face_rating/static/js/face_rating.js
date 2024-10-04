@@ -102,12 +102,12 @@ $(document).ready(function() {
                     success: function(response) {
                         // let result = response.result
                         let resultString = response.result;
-
-                        resultString = resultString.replace(/'/g, '"');
-                        let parsedResult = JSON.parse(resultString);
+                        console.log(resultString)
+                        let parsedResult = resultString
                         console.log(parsedResult)
 
                         $("#point_rating_jawline").text(parsedResult["Jawline"]);
+
                         $("#point_rating_nose").text(parsedResult["Nose"]);
                         $("#point_rating_eye").text(parsedResult["Eye"]);
                         $("#point_rating_lip").text(parsedResult["Mouth"]);
