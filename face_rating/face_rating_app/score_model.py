@@ -135,15 +135,41 @@ class ScoreModel:
                 return f"{score}đ - Điểm không hợp lệ. Vui lòng nhập điểm từ 1 đến 10."
 
     def final_result(self):
+        def extract_score(score_str):
+            """Helper function to extract float score from formatted string."""
+            return float(score_str.split("đ")[0])
+
+        # Get scores
         score_jawline = self.score_jawline()
         score_eye = self.score_eye()
         score_mouth = self.score_mouth()
         score_nose = self.score_nose()
-        score_mean = (float((score_jawline.split("đ"))[0]) + float((score_eye.split("đ"))[0]) + float((score_mouth.split("đ"))[0]) + float((score_nose.split("đ"))[0]))/4
+
+        # Extract individual scores
+        scores = [
+            extract_score(score_jawline),
+            extract_score(score_eye),
+            extract_score(score_mouth),
+            extract_score(score_nose)
+        ]
+
+        # Calculate mean score
+        score_mean = sum(scores) / len(scores)
+
+        # Print individual scores
+        print(*scores)  # Unpacking to print all scores in one line
+
         return {
-            "Jawline":score_jawline,
-            "Eye":score_eye,
-            "Mouth":score_mouth,
-            "Nose":score_nose,
-            "Mean":score_mean
+            "point": {
+                "Jawline": scores[0],
+                "Eye": scores[1],
+                "Mouth": scores[2],
+                "Nose": scores[3],
+                "Mean": score_mean
+            },
+            "Jawline": score_jawline,
+            "Eye": score_eye,
+            "Mouth": score_mouth,
+            "Nose": score_nose,
+            "Mean": score_mean
         }

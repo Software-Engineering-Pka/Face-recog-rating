@@ -12,6 +12,9 @@ import numpy as np
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from face_recognition_app.views import close_camera
+from .models import RatingModel, RatingSessionsModel
+from account.models import AccountModel
+
 def face_rating(request):
     close_camera()
     if request.method == "POST":
@@ -23,7 +26,25 @@ def face_rating(request):
             result,edited_image_path = scoring_face(image)
             with open(edited_image_path, "rb") as img_file:
                 img_base64 = base64.b64encode(img_file.read()).decode('utf-8')
-
+            try:
+                account = AccountModel.objects.get(username = request.user.username)
+                session_model = RatingSessionsModel.objects.create(
+                    account = account
+                )
+                print("hello")
+                print("Point",result["point"])
+                rating_model = RatingModel.objects.create(
+                        session = session_model,
+                        eye_point = result["point"]["Eye"],
+                        nose_point = result["point"]["Nose"],
+                        jawline_point = result["point"]["Jawline"],
+                        mouth_point = result["point"]["Mouth"],
+                        mean_point = result["point"]["Mean"]
+                )
+                if rating_model:
+                    print("Them vao db thanh cong")
+            except Exception:
+                print(Exception)
             return JsonResponse({
                 'result': result,
                 'edited_image': img_base64
@@ -74,7 +95,8 @@ def scoring_face(image):
 
         model = ScoreModel(shape)
         result = model.final_result()
-
+        
+    
         # Save the edited image
         output_path = os.path.join(settings.MEDIA_ROOT,"images", "edited_images", "edited_image.jpg")
         cv2.imwrite(output_path, image)
@@ -95,12 +117,31 @@ def upload_view(request):
             image_np = cv2.cvtColor(image_np, cv2.COLOR_RGBA2RGB)
 
         result, edited_image_path = scoring_face(image_np)
-        result = str(result)
-
+        # result = str(result)
+        try:
+            account = AccountModel.objects.get(username = request.user.username)
+            print(account.email)
+            session_model = RatingSessionsModel.objects.create(
+                account = account
+            )
+            print(session_model)
+            print("Point",type(result))
+            rating_model = RatingModel.objects.create(
+                session = session_model,
+                eye_point = result["point"]["Eye"],
+                nose_point = result["point"]["Nose"],
+                jawline_point = result["point"]["Jawline"],
+                mouth_point = result["point"]["Mouth"],
+                mean_point = result["point"]["Mean"]
+            )
+            if rating_model:
+                print("Them vao db thanh cong")
+        except Exception:
+                print(Exception)
         # Convert edited image to base64 to include in response
         with open(edited_image_path, "rb") as img_file:
             img_base64 = base64.b64encode(img_file.read()).decode('utf-8')
-
+  
         return JsonResponse({
             'result': result,
             'edited_image': img_base64
