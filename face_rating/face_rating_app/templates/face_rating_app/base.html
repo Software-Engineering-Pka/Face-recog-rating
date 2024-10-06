@@ -20,7 +20,7 @@
                 <ul>
                    
                     <li><a href="{% url 'face_recognition_app:face_recognition_app' %}">Face recognition</a></li>
-                    <li><a href="{% url 'face_rating_app:face_rating' %}">Face Rating</a></li>
+                    <li><a href="{% url 'face_rating_app:face_rating' %}">Home</a></li>
                     {% if request.user.is_authenticated %}
                     <li><a href="">{{request.user.username}}</a></li>
 
